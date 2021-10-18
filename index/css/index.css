@@ -1,0 +1,51 @@
+#search{
+    position: absolute;
+    height: 25px;
+    width: 400px;
+    margin-left: 25%;
+    margin-right: 25%;
+    border-radius: 5px;
+    border: 0px;
+    top:21px;
+    background: linear-gradient(90deg, #D9043D, #033E8C);
+    padding: 5px;
+    color: #F2B705;
+    opacity: 0.8;
+}
+h1{
+    font-family: 'Slabo 27px', serif;
+    color: #033E8C
+}
+#sun{
+    position: relative;
+    width: 30px;
+    left: 160px;
+    bottom: 50px;
+}
+#Button_Go{
+    color: #A8B2BF;
+    position: absolute;
+    height: 33px;
+    width: 70px;
+    background: linear-gradient(90deg, #D9043D, #033E8C);
+    border: 0px;
+    border-radius: 5px;
+    left: 946px;
+    top: 22px;
+}
+.card{
+    padding-left: 8px;
+    float: left;
+    height: 360px;
+    width: 300px;
+    background: linear-gradient(35deg, #D9043D, #033E8C);
+    border-radius: 12px;
+    color: #F2B705
+}
+.mother{
+    display: flex;
+    justify-content: space-around;
+}
+div img{
+    height: 90px;
+}
