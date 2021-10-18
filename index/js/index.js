@@ -9,7 +9,7 @@ const example = async(city1, id) => {
     let requestapi = await fetch(`https://api.weatherapi.com/v1/current.json?key=69645ce9bf554afa863102051211810&q=${city1}&aqi=no`)
     let response = await requestapi.json()
     document.getElementById(id).innerHTML = `<h3 style="text-align: center">${response.location.name} </h3> 
-    <img style="padding-left: 110px"src="https:${response.current.condition.icon}">
+    <img style="padding-left: 6vw"src="https:${response.current.condition.icon}">
     <p>Condition: ${response.current.condition.text}</p>
     <p>Humidity: ${response.current.humidity}</p>
     <p>Cloud: ${response.current.cloud}</p>
@@ -19,7 +19,7 @@ const example = async(city1, id) => {
 const search = async(id) =>{
     let response = await request();
     document.getElementById(id).innerHTML = `<h3 style="text-align: center">${response.location.name} </h3> 
-    <img style="padding-left: 110px"src="https:${response.current.condition.icon}">
+    <img style="padding-left: 6vw"src="https:${response.current.condition.icon}">
     <p>Condition: ${response.current.condition.text}</p>
     <p>Humidity: ${response.current.humidity}</p>
     <p>Cloud: ${response.current.cloud}</p>
