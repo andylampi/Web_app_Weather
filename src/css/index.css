@@ -91,7 +91,7 @@ div img{
         padding-left: 8px;
         float: left;
         height: 360px;
-        width: 170px;
+        width: 100%;
         background: linear-gradient(35deg, #D9043D, #033E8C);
         border-radius: 12px;
         color: #F2B705;
@@ -146,7 +146,7 @@ div img{
         padding-left: 8px;
         float: left;
         height: 370px;
-        width: 150px;
+        width: 100%;
         background: linear-gradient(35deg, #D9043D, #033E8C);
         border-radius: 12px;
         color: #F2B705;
