@@ -8,7 +8,7 @@ const showhtml = (city, id, response) => {
     <p>Wind_mph: ${response.current.wind_mph}</p>`
     
 }
-function getUserLocation() {
+const getUserLocation = () => {
     return new Promise(function(resolve, reject) {
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(resolve);
@@ -17,7 +17,7 @@ function getUserLocation() {
         }
     });
   }
-function showPosition(position) {
+const  showPosition = (position) => {
     let coordinates = new Object();
     coordinates = {
         latitude:position.coords.latitude,
@@ -31,7 +31,9 @@ const mycity = async(coordinates) =>{
     let request = await fetch(`https://api.weatherapi.com/v1/current.json?key=69645ce9bf554afa863102051211810&q=${coordinates.latitude},${coordinates.longitude}`)
     let response = await request.json()
     showhtml(city, "city", response)
+    return coordinates
 }
+
 const search = async(id) =>{
     let city = document.getElementById("search").value;
     let requestapi = await fetch(`https://api.weatherapi.com/v1/current.json?key=69645ce9bf554afa863102051211810&q=${city}&aqi=no`)
@@ -39,8 +41,19 @@ const search = async(id) =>{
     showhtml(city, id, response)   
     return response
 }
+
+const createArr = (coord) => {
+    const uluru = { lat: coord.latitude, lng: coord.longitude };
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 13,
+    center: uluru,
+  });
+  const marker = new google.maps.Marker({
+    position: uluru,
+    map: map,
+  });
+}
+
 Main:{
-getUserLocation()
-    .then(showPosition)
-    .then(mycity)
+getUserLocation().then(showPosition).then(mycity).then(createArr)
 }
