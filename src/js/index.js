@@ -44,15 +44,17 @@ const search = async(id) =>{
 
 const createArr = (coord) => {
     const uluru = { lat: coord.latitude, lng: coord.longitude };
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 13,
+    const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 8,
     center: uluru,
-  });
-  const marker = new google.maps.Marker({
+    });
+    const marker = new google.maps.Marker({
     position: uluru,
     map: map,
-  });
+    });
+    return coord
 }
+
 
 Main:{
 getUserLocation().then(showPosition).then(mycity).then(createArr)

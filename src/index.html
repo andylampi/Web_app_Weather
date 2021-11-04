@@ -6,14 +6,31 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap" rel="stylesheet"> 
-    <script type="text/javascript" src='../test-credentials.js'></script>    
+    <script type="text/javascript" src='../test-credentials.js'></script>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" /> 
+    <link rel="apple-touch-icon" href="images/152x152.png">
+    <meta name="apple-mobile-web-app-capable" content="yes"> 
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="PWA Esempio">
+    <meta name="application-name" content="PWA Esempio" />
+    <meta name="msapplication-TileImage" content="images/144x144.png"> 
+    <meta name="msapplication-TileColor" content="#cc194b">
     <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
     <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
     <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
     <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
-  <script>window.ENV_VARIABLE = 'developer.here.com'</script><script src='../iframeheight.js'></script>
+    <script>window.ENV_VARIABLE = 'developer.here.com'</script><script src='../iframeheight.js'></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async>
+        window.onload = () => {
+        'use strict'; 
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker
+            .register('./service-worker.js');
+            }
+        }
+    </script>
     <title>Lampi Weather</title>
 </head>
 <body>
@@ -34,7 +51,7 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAc65WwKoMamy8zavmBpgPAsstIJXuJCVE&callback=initMap&v=weekly"
       async
     ></script>
-
+    <script src="js/core.js" async></script>
 
 
 </body>
