@@ -53,6 +53,21 @@ div img{
     margin-top: 50px;
     width: 70%;
     height: 500px;
+    float: left;
+}
+#alert{
+    position: relative;
+    top: 27px;
+    font-family: 'Fruktur', cursive;
+}
+#ButtonRiver{
+    position: relative;
+    padding: 10px;
+    border-radius: 20px;
+    border: 0px;
+    top: 40px;
+    background: linear-gradient(35deg, #D9043D, #033E8C);
+    color: #F2B705;
 }
 
 @media(max-width: 450px){
@@ -109,7 +124,22 @@ div img{
     div img{
         height: 90px;
     }
+    #alert{
+        position: relative;
+        top: 27px;
+        font-family: 'Fruktur', cursive;
+    }
+    #ButtonRiver{
+        position: relative;
+        padding: 10px;
+        border-radius: 20px;
+        border: 0px;
+        top: 40px;
+        background: linear-gradient(35deg, #D9043D, #033E8C);
+        color: #F2B705;
+    }
 }
+
 @media(max-width: 414px){
     #search{
         position: absolute;
@@ -163,6 +193,20 @@ div img{
     }
     div img{
         height: 90px;
+    }
+    #alert{
+        position: relative;
+        top: 27px;
+        font-family: 'Fruktur', cursive;
+    }
+    #ButtonRiver{
+        position: relative;
+        padding: 10px;
+        border-radius: 20px;
+        border: 0px;
+        top: 40px;
+        background: linear-gradient(35deg, #D9043D, #033E8C);
+        color: #F2B705;
     }
 }
 

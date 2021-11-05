@@ -42,20 +42,40 @@ const search = async(id) =>{
     return response
 }
 
-const createArr = (coord) => {
-    const uluru = { lat: coord.latitude, lng: coord.longitude };
-    const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 8,
-    center: uluru,
-    });
-    const marker = new google.maps.Marker({
-    position: uluru,
-    map: map,
-    });
-    return coord
+
+async function around(coord){    
+    limits = 20;
+    let url= await fetch(`https://browse.search.hereapi.com/v1/browse?at=${coord.latitude},${coord.longitude}&limit=${limits}&categories=350-3500-0302&apikey=yvC_lpZ5UJ-mLrhHb8MCRMbDErDThM5mpSAn_M-xglo`)
+    let response = await url.json()
+    for(let position of response.items){
+    console.log(position.position)
+    }
 }
 
 
+function CreationMap(coord){
+    var platform = new H.service.Platform({
+        apikey: "yvC_lpZ5UJ-mLrhHb8MCRMbDErDThM5mpSAn_M-xglo"
+    });
+    var defaultLayers = platform.createDefaultLayers();
+    var map = new H.Map(document.getElementById('map'),
+        defaultLayers.vector.normal.map,{
+        center: {lat:coord.latitude, lng:coord.longitude},
+        zoom: 13,
+        pixelRatio: window.devicePixelRatio || 1
+    });
+    window.addEventListener('resize', () => map.getViewPort().resize());
+    var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+    var ui = H.ui.UI.createDefault(map, defaultLayers);
+    let parisMarker = new H.map.Marker({lat:coord.latitude, lng:coord.longitude});
+    map.addObject(parisMarker); 
+    return coord  
+}
+
 Main:{
-getUserLocation().then(showPosition).then(mycity).then(createArr)
+getUserLocation()
+.then(showPosition)
+.then(mycity)
+.then(CreationMap)
+.then(around)
 }
