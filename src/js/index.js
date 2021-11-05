@@ -69,6 +69,17 @@ function CreationMap(coord){
     var ui = H.ui.UI.createDefault(map, defaultLayers);
     let parisMarker = new H.map.Marker({lat:coord.latitude, lng:coord.longitude});
     map.addObject(parisMarker); 
+    let button = document.getElementById("ButtonRiver")
+    button.addEventListener("click", async() => {
+        limits = 20;
+        let url= await fetch(`https://browse.search.hereapi.com/v1/browse?at=${coord.latitude},${coord.longitude}&limit=${limits}&categories=350-3500-0302&apikey=yvC_lpZ5UJ-mLrhHb8MCRMbDErDThM5mpSAn_M-xglo`)
+        let response = await url.json()
+        for(let position of response.items){
+        let parisMarker = new H.map.Marker({lat:position.position.lat, lng:position.position.lng});
+        map.addObject(parisMarker);
+    }
+
+    })
     return coord  
 }
 
@@ -77,5 +88,5 @@ getUserLocation()
 .then(showPosition)
 .then(mycity)
 .then(CreationMap)
-.then(around)
+
 }
